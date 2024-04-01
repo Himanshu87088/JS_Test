@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Min and Max</title>
+</head>
+<body>
+    <h1>Sum Of Minimum and Maximum Element</h1>
+    <b>The Result Of Minimum and Maximum Element's Addition Is:</b>
+    <div id="result"></div>
+</body>
+<script>
+    //Function To Sort The Array
+    function Sort(arr){
+        for(let i=0;i<arr.length;i++){
+            for(let j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    let temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    let arr=[10,2,3,7,54,32,57,89,78,53,44,32,22,45,22,55,21,45,5,6,70,40];
+    let arr2=Sort(arr);
+    let Temp_Min=arr2[0];
+    let Temp_Max=arr2[arr2.length-1];
+    let sum=Temp_Max+Temp_Min;
+    document.getElementById('result').textContent=sum;
+</script>
+</html>

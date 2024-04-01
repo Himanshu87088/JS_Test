@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram</title>
+    <style>
+        #result{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Anagram</h1>
+    <b>If Strings Are Anagram Or Not:</b>
+    <div id="result"></div>
+</body>
+<script>
+     function Sort(str){
+        for(let i=0;i<str.length;i++){
+            for(let j=i+1;j<str.length;j++){
+                if(str[i]>str[j]){
+                    let temp=str[i];
+                    str[i]=str[j];
+                    str[j]=temp;
+                }
+            }
+        }
+        return str;
+    }
+    function Anagram_Or_Not(str1,str2){
+       if(str1.length!==str2.length){
+        return false;
+       }
+       let temp1=Sort([...str1]);
+      
+       let temp2=Sort([...str2]);
+       temp1=temp1.join('');
+       
+       temp2=temp2.join('');
+       if(temp1===temp2){
+        return true;
+       }
+       return false;
+    }
+
+    let str1="listen";
+    let str2="silent";
+    let res=Anagram_Or_Not(str1,str2);
+    document.getElementById('result').textContent=res;
+</script>
+</html>

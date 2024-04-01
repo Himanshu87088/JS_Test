@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromes</title>
+    <style>
+        b{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Palindrme Numbers From The Array:</h1>
+    <b>The Palindromes From The Given Array Are:</b>
+    <div id="result"></div>
+</body>
+<script>
+    function Palindrme(arr){
+        let res=[];//Array For Storing Result
+        for(let i=0;i<arr.length;i++){
+            //Cnverted every array element into a string one by one
+            let temp=String(arr[i]);
+            //Using Separator operator reversed the string and check if the both numbers are equa or not if equal then push into array
+            let temp1=[...temp].reverse().join("");
+            if(temp===temp1){
+                //Parseint to convert string into integer
+                res.push(parseInt(temp,10));
+            }
+        }
+        return res;
+    }
+
+    //Input Array
+    let arr=[12,32,34,54,67,55,66,78,65,44,33,23,89,76,43,23,12321,343,767,787,13,141,212,454,60,90,88,76];
+    let arr2=Palindrme(arr);
+    document.getElementById('result').textContent=arr2;
+
+</script>
+</html>
